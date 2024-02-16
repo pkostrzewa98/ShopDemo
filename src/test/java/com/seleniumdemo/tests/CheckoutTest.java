@@ -1,20 +1,28 @@
 package com.seleniumdemo.tests;
 
+import com.seleniumdemo.models.Customer;
 import com.seleniumdemo.pages.HomePage;
-import org.openqa.selenium.WebElement;
+import com.seleniumdemo.pages.OrderDetailsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CheckoutTest extends BaseTest {
     @Test
-    public void checkOutTest() {
+    public void checkOutTest() throws InterruptedException {
 
-        new HomePage(driver)
+        Customer customer = new Customer();
+        customer.setEmail("spec@mail.mail");
+
+        OrderDetailsPage orderDetailsPage = new HomePage(driver)
                 .openShopPage()
                 .openProduct("Java Selenium WebDriver")
                 .addProductToCart()
                 .viewCart()
-                .openAddressDetails();
+                .openAddressDetails()
+                .fillCustomerDetails(customer, "Comment");
+
+        Assert.assertEquals(orderDetailsPage.getOrderNotice().getText(),"Thank you. Your order has been received.");
+        Assert.assertEquals(orderDetailsPage.getPurchasedProductName().getText(),"Java Selenium WebDriver × 1");
     }
 
 

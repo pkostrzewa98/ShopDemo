@@ -9,7 +9,6 @@ public class RegisterTest extends BaseTest {
     @Test
     public void registerUserTest() {
         int random = (int) (Math.random() * 1000);
-
         WebElement dashboardLink = new HomePage(driver)
                 .openMyAccountPage()
                 .registerUserValidData("test" + random + "@mnn.vn", "TesttEst123@1!")
@@ -20,8 +19,6 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void registerUserWithExistEmailTest() {
-        int random = (int) (Math.random() * 1000);
-
         WebElement error = new HomePage(driver)
                 .openMyAccountPage()
                 .registerUserInvalidData("test1@mnn.vn", "TesttEst123@1!")

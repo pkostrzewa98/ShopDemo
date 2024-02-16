@@ -2,16 +2,17 @@ package com.seleniumdemo.models;
 
 public class Customer {
 
-    private String firstName;
-    private String lastName;
-    private String companyName;
-    private String country;
-    private String street;
-    private String flatNumber;
-    private String zipCode;
-    private String city;
-    private String phone;
-    private String email;
+    private String firstName = "Joe";
+    private String lastName = "Newman";
+    private String companyName = "Automation co";
+    private String country = "Poland";
+    private String street = "Baker st";
+    private String flatNumber = "34/12";
+    private String zipCode = "11111";
+    private String city = "London";
+    private String phone = "111111111";
+    private String email = "test1@mnn.vn";
+
 
     public String getFirstName() {
         return firstName;
